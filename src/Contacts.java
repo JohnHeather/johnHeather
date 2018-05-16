@@ -17,13 +17,12 @@ public class Contacts {
 
     }
 
-
-
-
-
-
-
     public static void main(String[] args){
+
+        Scanner scanner = new Scanner(System.in);
+        int userInput;
+
+        try {
 
         System.out.printf("Welcome to my contacts" + " \n" +
                 "<--------------------------------->" + " \n" +
@@ -34,7 +33,25 @@ public class Contacts {
                 "5. Exit." + " \n" +
                 "<-------------------------------->");
 
+        userInput = input.nextInt(); //input for user option
+        if(userInput > 5 || userInput < 1){
+            System.out.println("Please enter an option from 1 to 5!\n");
+            openMenu();
+        }
+
+
+        }
+
+
+
+
+
     }
+
+    do{
+
+    }while ()
+
 
 
 }
