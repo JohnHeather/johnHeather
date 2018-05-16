@@ -1,5 +1,4 @@
 
-import java.util.Input;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,15 +6,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-//import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Contacts {
 
     protected String names;
-    protected int phoneNumber;
+    protected String phoneNumber;
 
-    public Contacts(String names, int phoneNumber) {
+    public Contacts(String names, String phoneNumber) {
         this.names = names;
         this.phoneNumber = phoneNumber;
 
@@ -23,9 +23,9 @@ public class Contacts {
 
     public static void main(String[] args) {
 
-//        int userInput;
-        String directory = "data";
-        String filenmae = "PhoneBook.txt";
+
+        String directory = "My PhoneBook";
+        String filename = "Contacts.txt";
 
         createFileIfNotExists(directory, filename);
 
@@ -33,27 +33,21 @@ public class Contacts {
         System.out.println(items);
 
         try {
-            writeListToFile(items, directory, filenmae);
+            writeListToFile(items, directory, filename);
         } catch(IOException e) {
             System.out.println(e.getMessage());
         }
         try {
-            readLines(directory, filenmae);
-        }catch(IOException e) {
+            readLines(directory, filename);
+        } catch(IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void writeListToFile(ArrayList<String> list, String directory, String filename) throws IOException {
-        Path firlepath = Path.get(directory, filename);
-        Files.write(filepath, list, StandardOpenOption.APPEND);
-    }
-
-
         public static void createFileIfNotExists (String directory, String filename){
 
-            Path dataDirectory = Path.get(directory);
-            Path dataFile = Path.get(directory, filenmae);
+            Path dataDirectory = Paths.get(directory);
+            Path dataFile = Paths.get(directory, filename);
             try {
                 if (Files.notExists(dataDirectory)) {
                     Files.createDirectories(dataDirectory);
@@ -66,7 +60,22 @@ public class Contacts {
                 System.out.println(e.getMessage());
             }
         }
+    public static void writeListToFile(ArrayList<String> list, String directory, String filename) throws IOException {
+        Path filepath = Paths.get(directory, filename);
+        Files.write(filepath, list, StandardOpenOption.APPEND);
+    }
 
+    public static void readLines(String directory, String filename) throws IOException{
+
+        Path filePath = Paths.get(directory, filename);
+
+        List<String> list = Files.readAllLines(filePath);
+
+        for(String item : list) {
+            System.out.println(item);
+        }
+
+    }
 
         public static ArrayList<String> makeList() {
             ArrayList<String> list = new ArrayList<>();
@@ -74,15 +83,47 @@ public class Contacts {
             String item;
 
             do {
-                item = input.getString("Welcome to my contacts\" + \" \\n\" +\n" +
-                        "                    \"<--------------------------------->\" + \" \\n\" +\n" +
-                        "                    \"1. View contacts.\" + \" \\n\" +\n" +
-                        "                    \"2. Add a new contact.\" + \" \\n\" +\n" +
-                        "                    \"3. Search a contact by name.\" + \" \\n\" +\n" +
-                        "                    \"4. Delete an existing contact.\" + \" \\n\" +\n" +
-                        "                    \"5. Exit.\" + \" \\n\" +\n" +
-                        "                    \"<--------------------------------> ");
-                list.add(item);
+
+
+                int swValue;
+                System.out.println("|   MENU SELECTION DEMO    |");
+                System.out.println("| Options:                 |");
+                System.out.println("|        1. Option 1       |");
+                System.out.println("|        2. Option 2       |");
+                System.out.println("|        3. Exit           |");
+                swValue = Keyin.inInt(" Select option: ");
+
+
+                item = input.getString("                       Welcome to my contacts " + " \n" +
+                        "                    <------- Select A Option ------->" + " \n" +
+                        "                   | 1. View contacts.              | " + "\n" +
+                        "                   | 2. Add a new contact.          | " + "\n" +
+                        "                   | 3. Search a contact by name.   |" + " \n" +
+                        "                   | 4. Delete an existing contact. |" + " \n" +
+                        "                   | 5. Exit.                       |" + "\n" +
+                        "                    <--------------------------------> ");
+//
+//                // Switch construct
+                switch (item) {
+                    case 1:
+                        System.out.println("1. View contacts.");
+                        break;
+                    case 2:
+                        System.out.println("Option 2 selected");
+                        break;
+                    case 3:
+                        System.out.println("Exit selected");
+                        break;
+                    case 4:
+                        System.out.println("Exit selected");
+                        break;
+                    default:5:
+                        System.out.println("Invalid selection");
+                        break; // This break is not really necessary
+                }
+
+
+//                list.add(item);
             } while(input.yesNo(" Would you like to enter another contact? "));
 
             return list;
