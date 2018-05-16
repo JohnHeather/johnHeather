@@ -1,15 +1,19 @@
+
+import java.util.Input;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+//import java.util.Scanner;
 
 
 public class Contacts {
 
     protected String names;
-    private int phoneNumber;
+    protected int phoneNumber;
 
     public Contacts(String names, int phoneNumber) {
         this.names = names;
@@ -17,41 +21,58 @@ public class Contacts {
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        int userInput;
+//        int userInput;
+        String directory = "data";
+        String filenmae = "PhoneBook.txt";
 
-        try {
+//        createFileIfNotExists(dirctory, filenmae);
 
-        System.out.printf("Welcome to my contacts" + " \n" +
-                "<--------------------------------->" + " \n" +
-                "1. View contacts." + " \n" +
-                "2. Add a new contact." + " \n" +
-                "3. Search a contact by name." + " \n" +
-                "4. Delete an existing contact." + " \n" +
-                "5. Exit." + " \n" +
-                "<-------------------------------->");
+        ArrayList<String> items = makeList();
+    }
 
-        userInput = input.nextInt(); //input for user option
-        if(userInput > 5 || userInput < 1){
-            System.out.println("Please enter an option from 1 to 5!\n");
-            openMenu();
+
+        public static void createFileIfNotExists (String directory, String filename){
+
+            Path dataDirectory = Path.get(directory);
+            Path dataFile = Path.get(directory, filenmae);
+            try {
+                if (Files.notExists(dataDirectory)) {
+                    Files.createDirectories(dataDirectory);
+                }
+
+                if (Files.notExists(dataFile)) {
+                    Files.createFile(dataFile);
+                }
+            } catch(IOException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
 
-        }
+        public static ArrayList<String> makeList() {
+            ArrayList<String> list = new ArrayList<>();
+            Input input = new Input();
+            String item;
 
+            do {
+                item = input.getString("Welcome to my contacts\" + \" \\n\" +\n" +
+                        "                    \"<--------------------------------->\" + \" \\n\" +\n" +
+                        "                    \"1. View contacts.\" + \" \\n\" +\n" +
+                        "                    \"2. Add a new contact.\" + \" \\n\" +\n" +
+                        "                    \"3. Search a contact by name.\" + \" \\n\" +\n" +
+                        "                    \"4. Delete an existing contact.\" + \" \\n\" +\n" +
+                        "                    \"5. Exit.\" + \" \\n\" +\n" +
+                        "                    \"<--------------------------------> ");
+                list.add(item);
+            } while(input.yesNo(" Would you like to enter another contact? "));
 
+            return list;
 
 
 
     }
-
-    do{
-
-    }while ()
-
 
 
 }
