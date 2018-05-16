@@ -27,9 +27,26 @@ public class Contacts {
         String directory = "data";
         String filenmae = "PhoneBook.txt";
 
-//        createFileIfNotExists(dirctory, filenmae);
+        createFileIfNotExists(directory, filename);
 
         ArrayList<String> items = makeList();
+        System.out.println(items);
+
+        try {
+            writeListToFile(items, directory, filenmae);
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            readLines(directory, filenmae);
+        }catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void writeListToFile(ArrayList<String> list, String directory, String filename) throws IOException {
+        Path firlepath = Path.get(directory, filename);
+        Files.write(filepath, list, StandardOpenOption.APPEND);
     }
 
 
