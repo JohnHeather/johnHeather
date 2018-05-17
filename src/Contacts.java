@@ -74,7 +74,7 @@ public class Contacts {
         for(String item : list) {
             System.out.println(item);
         }
-
+//
     }
 
         public static ArrayList<String> makeList() {
@@ -91,7 +91,6 @@ public class Contacts {
                 System.out.println("|        1. Option 1       |");
                 System.out.println("|        2. Option 2       |");
                 System.out.println("|        3. Exit           |");
-                swValue = Keyin.inInt(" Select option: ");
 
 
                 item = input.getString("                       Welcome to my contacts " + " \n" +
@@ -103,24 +102,24 @@ public class Contacts {
                         "                   | 5. Exit.                       |" + "\n" +
                         "                    <--------------------------------> ");
 //
-//                // Switch construct
-                switch (item) {
-                    case 1:
-                        System.out.println("1. View contacts.");
-                        break;
-                    case 2:
-                        System.out.println("Option 2 selected");
-                        break;
-                    case 3:
-                        System.out.println("Exit selected");
-                        break;
-                    case 4:
-                        System.out.println("Exit selected");
-                        break;
-                    default:5:
-                        System.out.println("Invalid selection");
-                        break; // This break is not really necessary
-                }
+////                // Switch construct
+//                switch (item) {
+//                    case 1:
+//                        System.out.println("1. View contacts.");
+//                        break;
+//                    case 2:
+//                        System.out.println("Option 2 selected");
+//                        break;
+//                    case 3:
+//                        System.out.println("Exit selected");
+//                        break;
+//                    case 4:
+//                        System.out.println("Exit selected");
+//                        break;
+//                    default 5:
+//                        System.out.println("Invalid selection");
+//                        break; // This break is not really necessary
+//                }
 
 
 //                list.add(item);
