@@ -167,8 +167,8 @@ public class Contacts {
                     + "                                1. Add a New Contact.                                                           " + "\n"
                     + "                                2. Go to Contact List                                      " + "\n"
                     + "                                3. Retrieve a person's information by last name                " + "\n"
-                    + "                                4. Retrieve a person's information by email address            " + "\n"
-                    + "                                5. Retrieve all people who live in a given zip code            " + "\n"    /* add a delete feature remove this option*/
+                    + "                                4. Edit Contacts            " + "\n"
+                    + "                                5. Delete Contacts            " + "\n"    /* add a delete feature remove this option*/
                     + "                                6. Exit                                                         " + "\n"
                     + "                             __________________________________________________________   " + "\n");
 
