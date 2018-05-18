@@ -3,16 +3,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Contacts {
-
-    protected String names;
-    protected String phoneNumber;
-
-    public Contacts(String names, String phoneNumber) {
-        this.names = names;
-        this.phoneNumber = phoneNumber;
-
-    }
+public class test {
 
     public static void main(String args[]) throws IOException {
         Contact contact;
@@ -38,7 +29,7 @@ public class Contacts {
             reader.useDelimiter("\n");
             action = reader.nextInt();
 
-            if (action <= 0 || action > 5) {
+            if (action <= 0 || action > 6) {
                 System.out.println("Invalid selection. ");
 
             }
@@ -118,7 +109,9 @@ public class Contacts {
 
                         // Print sorted contacts to console.
                         for (String fileLine : lines) {
-                            System.out.println(fileLine);
+                            String outlook = fileLine.substring(0, 1).toUpperCase()
+                                    + fileLine.substring(1);
+                            System.out.println(outlook);
 
                         }
 
@@ -285,8 +278,8 @@ public class Contacts {
         private String lastname, firstname, phone,
                 notes;
 
-        public Contact(String firstname,
-                        String phone, String notes,
+        public Contact(String lastnamename, String firstname, String address,
+                       String city, String zip, String email, String phone, String notes,
                        String lastname) {
             this.lastname = lastname;
             this.firstname = firstname;
@@ -301,8 +294,11 @@ public class Contacts {
 
         // overrides the default Object method
         public String toString() {
-            return lastname + " " + firstname
-                    +  " |  " + phone + " | | " + notes + " \n";
+            System.out.println(" Contacts ");
+            return "Name   |  PhoneNumber  |  Notes " + "\n" +
+                    "<------------------------------->" + "\n" +
+                    lastname + ", " + firstname + " |"
+                    +  " |  " + phone + " | " + notes;
         }
 
         /*
@@ -392,11 +388,6 @@ public class Contacts {
             catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
-        public void upperCaseFirst( ) {
-
-
         }
     }
 }
