@@ -38,7 +38,7 @@ public class Contacts {
             reader.useDelimiter("\n");
             action = reader.nextInt();
 
-            if (action <= 0 || action > 5) {
+            if (action <= 0 || action > 6) {
                 System.out.println("Invalid selection. ");
 
             }
@@ -71,7 +71,7 @@ public class Contacts {
 
                         Contact c = contact;
 
-                        File file = new File("contactlist.csv");
+                        File file = new File("PhoneBook.txt");
 
 
 
@@ -80,7 +80,7 @@ public class Contacts {
                             file.createNewFile();
                         }
 
-                        try (PrintWriter output = new PrintWriter(new FileWriter("contactlist.csv", true))) {
+                        try (PrintWriter output = new PrintWriter(new FileWriter("PhoneBook.txt", true))) {
                             output.printf("%s\r\n", c);
                         } catch (Exception e) {
                         }
@@ -100,7 +100,7 @@ public class Contacts {
                     String line = null;
 
                     // Location of file to read
-                    File file = new File("contactlist.csv");
+                    File file = new File("PhoneBook.txt");
 
                     // Sort contacts and print to console
                     try {
@@ -118,7 +118,9 @@ public class Contacts {
 
                         // Print sorted contacts to console.
                         for (String fileLine : lines) {
-                            System.out.println(fileLine);
+                            String outlook = fileLine.substring(0, 1).toUpperCase()
+                                    + fileLine.substring(1);
+                            System.out.println(outlook);
 
                         }
 
@@ -143,7 +145,7 @@ public class Contacts {
                         String searchterm = reader.next();
 
                         // Open the file as a buffered reader
-                        BufferedReader bf = new BufferedReader(new FileReader("contactlist.csv"));
+                        BufferedReader bf = new BufferedReader(new FileReader("PhoneBook.txt"));
 
                         // Start a line count and declare a string to hold our
                         // current line.
@@ -190,7 +192,7 @@ public class Contacts {
                         String searchterm = reader.next();
 
                         // Open the file as a buffered reader
-                        BufferedReader bf = new BufferedReader(new FileReader("contactlist.csv"));
+                        BufferedReader bf = new BufferedReader(new FileReader("PhoneBook.txt"));
 
                         // Start a line count and declare a string to hold our
                         // current line.
@@ -238,7 +240,7 @@ public class Contacts {
                         String searchterm = reader.next();
 
                         // Open the file as a buffered reader
-                        BufferedReader bf = new BufferedReader(new FileReader("contactlist.csv"));
+                        BufferedReader bf = new BufferedReader(new FileReader("PhoneBook.txt"));
 
                         // Start a line count and declare a string to hold our
                         // current line.
@@ -301,8 +303,11 @@ public class Contacts {
 
         // overrides the default Object method
         public String toString() {
-            return lastname + " " + firstname
-                    +  " |  " + phone + " | | " + notes + " \n";
+            System.out.println(" Contacts ");
+            return "Name   |  PhoneNumber  |  Notes " + "\n" +
+                    "<------------------------------->" + "\n" +
+                    lastname + ", " + firstname + " |"
+                    +  " |  " + phone + " | |  " + notes;
         }
 
         /*
@@ -373,7 +378,7 @@ public class Contacts {
                 contact = new Contact();
                 Contact c = contact;
 
-                File file = new File("contactlist.csv");
+                File file = new File("PhoneBook.txt");
 
                 // If file doesn't exists, then create it.
                 if (!file.exists()) {
@@ -381,7 +386,7 @@ public class Contacts {
                 }
 
                 try (PrintWriter output = new PrintWriter(new FileWriter(
-                        "contactlist.csv", true))) {
+                        "PhoneBook.txt", true))) {
                     output.printf("%s\r\n", c);
                 } catch (Exception e) {
                 }
@@ -394,8 +399,7 @@ public class Contacts {
             }
         }
 
-        public void upperCaseFirst( ) {
-
+        public void listSearch() {
 
         }
     }
