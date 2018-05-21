@@ -3,16 +3,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Contacts {
-
-    protected String names;
-    protected String phoneNumber;
-
-    public Contacts(String names, String phoneNumber) {
-        this.names = names;
-        this.phoneNumber = phoneNumber;
-
-    }
+public class test {
 
     public static void main(String args[]) throws IOException {
         Contact contact;
@@ -71,7 +62,7 @@ public class Contacts {
 
                         Contact c = contact;
 
-                        File file = new File("PhoneBook.txt");
+                        File file = new File("contactlist.csv");
 
 
 
@@ -80,7 +71,7 @@ public class Contacts {
                             file.createNewFile();
                         }
 
-                        try (PrintWriter output = new PrintWriter(new FileWriter("PhoneBook.txt", true))) {
+                        try (PrintWriter output = new PrintWriter(new FileWriter("contactlist.csv", true))) {
                             output.printf("%s\r\n", c);
                         } catch (Exception e) {
                         }
@@ -100,7 +91,7 @@ public class Contacts {
                     String line = null;
 
                     // Location of file to read
-                    File file = new File("PhoneBook.txt");
+                    File file = new File("contactlist.csv");
 
                     // Sort contacts and print to console
                     try {
@@ -145,7 +136,7 @@ public class Contacts {
                         String searchterm = reader.next();
 
                         // Open the file as a buffered reader
-                        BufferedReader bf = new BufferedReader(new FileReader("PhoneBook.txt"));
+                        BufferedReader bf = new BufferedReader(new FileReader("contactlist.csv"));
 
                         // Start a line count and declare a string to hold our
                         // current line.
@@ -192,7 +183,7 @@ public class Contacts {
                         String searchterm = reader.next();
 
                         // Open the file as a buffered reader
-                        BufferedReader bf = new BufferedReader(new FileReader("PhoneBook.txt"));
+                        BufferedReader bf = new BufferedReader(new FileReader("contactlist.csv"));
 
                         // Start a line count and declare a string to hold our
                         // current line.
@@ -240,7 +231,7 @@ public class Contacts {
                         String searchterm = reader.next();
 
                         // Open the file as a buffered reader
-                        BufferedReader bf = new BufferedReader(new FileReader("PhoneBook.txt"));
+                        BufferedReader bf = new BufferedReader(new FileReader("contactlist.csv"));
 
                         // Start a line count and declare a string to hold our
                         // current line.
@@ -287,8 +278,8 @@ public class Contacts {
         private String lastname, firstname, phone,
                 notes;
 
-        public Contact(String firstname,
-                        String phone, String notes,
+        public Contact(String lastnamename, String firstname, String address,
+                       String city, String zip, String email, String phone, String notes,
                        String lastname) {
             this.lastname = lastname;
             this.firstname = firstname;
@@ -307,7 +298,7 @@ public class Contacts {
             return "Name   |  PhoneNumber  |  Notes " + "\n" +
                     "<------------------------------->" + "\n" +
                     lastname + ", " + firstname + " |"
-                    +  " |  " + phone + " | |  " + notes;
+                    +  " |  " + phone + " | " + notes;
         }
 
         /*
@@ -378,7 +369,7 @@ public class Contacts {
                 contact = new Contact();
                 Contact c = contact;
 
-                File file = new File("PhoneBook.txt");
+                File file = new File("contactlist.csv");
 
                 // If file doesn't exists, then create it.
                 if (!file.exists()) {
@@ -386,7 +377,7 @@ public class Contacts {
                 }
 
                 try (PrintWriter output = new PrintWriter(new FileWriter(
-                        "PhoneBook.txt", true))) {
+                        "contactlist.csv", true))) {
                     output.printf("%s\r\n", c);
                 } catch (Exception e) {
                 }
@@ -397,10 +388,6 @@ public class Contacts {
             catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-
-        public void listSearch() {
-
         }
     }
 }
