@@ -710,10 +710,19 @@
       </value>
     </option>
     <option name="DEFAULT_BRACES">
-      <value />
+      <value>
+        <option name="FOREGROUND" value="3cf8ff" />
+      </value>
     </option>
     <option name="DEFAULT_BRACKETS">
-      <value />
+      <value>
+        <option name="FOREGROUND" value="fffe1d" />
+      </value>
+    </option>
+    <option name="DEFAULT_COMMA">
+      <value>
+        <option name="FOREGROUND" value="fbfdff" />
+      </value>
     </option>
     <option name="DEFAULT_CONSTANT">
       <value>
@@ -740,7 +749,9 @@
       <value />
     </option>
     <option name="DEFAULT_DOT">
-      <value />
+      <value>
+        <option name="FOREGROUND" value="ffc116" />
+      </value>
     </option>
     <option name="DEFAULT_ENTITY">
       <value>
@@ -786,10 +797,20 @@
       </value>
     </option>
     <option name="DEFAULT_OPERATION_SIGN">
-      <value />
+      <value>
+        <option name="FOREGROUND" value="bd3bff" />
+      </value>
     </option>
     <option name="DEFAULT_PARENTHS">
-      <value />
+      <value>
+        <option name="FOREGROUND" value="b43eb1" />
+      </value>
+    </option>
+    <option name="DEFAULT_SEMICOLON">
+      <value>
+        <option name="FOREGROUND" value="5fff33" />
+        <option name="BACKGROUND" value="3c3f41" />
+      </value>
     </option>
     <option name="DEFAULT_STATIC_FIELD">
       <value>
