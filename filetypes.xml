@@ -1,6 +1,7 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
+      <mapping pattern=".cods" type="PLAIN_TEXT" />
       <mapping pattern="BlogApplication" type="PLAIN_TEXT" />
       <mapping pattern="mvnw" type="PLAIN_TEXT" />
       <mapping pattern="join_test_db" type="SQL" />
